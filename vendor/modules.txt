@@ -1,3 +1,6 @@
+# github.com/gorilla/mux v1.8.0
+## explicit
+github.com/gorilla/mux
 # google.golang.org/protobuf v1.26.0
 ## explicit
 google.golang.org/protobuf/cmd/protoc-gen-go
