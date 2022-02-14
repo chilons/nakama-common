@@ -245,6 +245,9 @@ type Initializer interface {
 	*/
 	RegisterRpc(id string, fn func(ctx context.Context, logger Logger, db *sql.DB, nk NakamaModule, payload string) (string, error)) error
 
+	/* RegisterHttp registers an http handler*/
+	RegisterHttp(path string, fn func(ctx context.Context, logger Logger, db *sql.DB, nk NakamaModule, payload string) (string, error)) error
+
 	/*
 		RegisterBeforeRt registers a function for a message. The registered function will be called after the message has been processed in the pipeline.
 		The custom code will be executed asynchronously after the response message has been sent to a client
