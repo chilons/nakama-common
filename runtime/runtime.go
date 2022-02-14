@@ -93,6 +93,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/gorilla/mux"
 	"github.com/heroiclabs/nakama-common/api"
 	"github.com/heroiclabs/nakama-common/rtapi"
 )
@@ -244,6 +245,9 @@ type Initializer interface {
 		If there is an issue with the RPC call, return an empty string and the associated error which will be returned to the client.
 	*/
 	RegisterRpc(id string, fn func(ctx context.Context, logger Logger, db *sql.DB, nk NakamaModule, payload string) (string, error)) error
+
+	/* RegisterMux registers a funtion to modify the http router */
+	RegisterMux(fn func(ctx context.Context, logger Logger, db *sql.DB, nk NakamaModule, router *mux.Router) error) error
 
 	/*
 		RegisterBeforeRt registers a function for a message. The registered function will be called after the message has been processed in the pipeline.
